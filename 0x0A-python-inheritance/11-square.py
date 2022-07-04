@@ -1,16 +1,24 @@
 #!/usr/bin/python3
-"""Defines a Rectangle subclass Square."""
-Rectangle = __import__('9-rectangle').Rectangle
+"""Defines a base geometry class BaseGeometry."""
 
 
-class Square(Rectangle):
-    """Represent a square."""
+class BaseGeometry:
+    """Reprsent base geometry."""
 
-    def __init__(self, size):
-        """Initialize a new square.
+    def area(self):
+        """Not yet implemented."""
+        raise Exception("area() is not implemented")
+
+    def integer_validator(self, name, value):
+        """Validate a parameter as an integer.
         Args:
-            size (int): The size of the new square.
+            name (str): The name of the parameter.
+            value (int): The parameter to validate.
+        Raises:
+            TypeError: If value is not an integer.
+            ValueError: If value is <= 0.
         """
-        self.integer_validator("size", size)
-        super().__init__(size, size)
-        self.__size = size
+        if type(value) != int:
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
