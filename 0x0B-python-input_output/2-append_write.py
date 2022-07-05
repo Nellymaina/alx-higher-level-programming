@@ -1,20 +1,14 @@
 #!/usr/bin/python3
-"""
-Script that adds all arguments to a Python list, and then saves them to a file
-"""
+"""Defines a file-appending function."""
 
-from sys import argv
-save_to_json_file = __import__("7-save_to_json_file").save_to_json_file
-load_from_json_file = __import__("8-load_from_json_file").load_from_json_file
 
-filename = "add_item.json"
-
-try:
-    json_list = load_from_json_file(filename)
-except:
-    json_list = []
-
-for arg in argv[1:]:
-    json_list.append(arg)
-
-save_to_json_file(json_list, filename)
+def append_write(filename="", text=""):
+    """Appends a string to the end of a UTF8 text file.
+    Args:
+        filename (str): The name of the file to append to.
+        text (str): The string to append to the file.
+    Returns:
+        The number of characters appended.
+    """
+    with open(filename, "a", encoding="utf-8") as f:
+        return f.write(text)
