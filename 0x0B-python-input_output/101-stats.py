@@ -1,4 +1,4 @@
-#!/usr/bin/python3ads from standard input and computes metrics.
+#!/usr/bin/python3
 
 """
 After every ten lines or the input of a keyboard interruption (CTRL + C),
@@ -18,7 +18,9 @@ def print_stats(size, status_codes):
     for key in sorted(status_codes):
         print("{}: {}".format(key, status_codes[key]))
 
+
 if __name__ == "__main__":
+
     import sys
 
     size = 0
